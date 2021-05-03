@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
       tag: 'Logo',
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
-        radius: 32.0,
+        radius: 60.0,
         child: Image.asset('assets/logo.png'),
       ),
     );
@@ -74,18 +74,6 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {},
     );
 
-    final orLabel = Container(
-      alignment: AlignmentDirectional.center,
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black54),
-          borderRadius: BorderRadius.all(Radius.circular(100.0))),
-      child: Text("OR"),
-    );
-
-    // final registerLabel = Container(
-    //   alignment: AlignmentDirectional.center,
-    //   child: Text("New User? Register Here"),
-    // );
     final registerLabel = Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -103,27 +91,64 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
 
+    final orLabel_ = Container(
+      height: 40,
+      width: 100,
+      decoration: new BoxDecoration(
+        shape: BoxShape.circle,
+        border: new Border.all(
+          color: Colors.black26,
+          width: 2,
+        ),
+      ),
+      child: new Center(
+        child: new Text(
+          "OR",
+          style: Theme.of(context).textTheme.body1.apply(color: Colors.black54),
+        ),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: ListView(
           shrinkWrap: true,
-          padding: EdgeInsets.only(left: 24.0, right: 24.0),
+          // padding: EdgeInsets.only(left: 24.0, right: 24.0),
           children: <Widget>[
-            logo,
-            SizedBox(height: 48.0),
-            email,
-            SizedBox(height: 8.0),
-            password,
-            SizedBox(height: 12.0),
-            Container(
-              child: forgotLabel,
-              alignment: AlignmentDirectional.centerEnd,
+            Padding(
+              padding: EdgeInsets.only(left: 24.0, right: 24.0),
+              child: logo,
             ),
-            loginButton,
+            // logo,
+            SizedBox(height: 48.0),
+            Padding(
+              padding: EdgeInsets.only(left: 24.0, right: 24.0),
+              child: email,
+            ),
             SizedBox(height: 8.0),
-            orLabel,
-            SizedBox(height: 24.0),
+            Padding(
+              padding: EdgeInsets.only(left: 24.0, right: 24.0),
+              child: password,
+            ),
+
+            SizedBox(height: 12.0),
+            Padding(
+              padding: EdgeInsets.only(left: 24.0, right: 24.0),
+              child: Container(
+                child: forgotLabel,
+                alignment: AlignmentDirectional.centerEnd,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 24.0, right: 24.0),
+              child: loginButton,
+            ),
+
+            SizedBox(height: 5.0),
+            orLabel_,
+
+            SizedBox(height: 15.0),
             registerLabel,
           ],
         ),
